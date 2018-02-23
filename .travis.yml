@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build --pull -t umweltdk/teamcity-agent .
+
+ deploy:
+  provider: script
+  script:
+    - docker login -u umweltdkbuildserver -p $DOCKER_PASSWORD
+    - docker push umweltdk/teamcity-agent
+  on:
+    repo: 'umweltdk/teamcity-agent'
+    branch: master
