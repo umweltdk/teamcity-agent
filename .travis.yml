@@ -6,7 +6,7 @@ services:
 script:
   - docker build --pull -t umweltdk/teamcity-agent .
 
- deploy:
+deploy:
   provider: script
   script:
     - docker login -u umweltdkbuildserver -p $DOCKER_PASSWORD
