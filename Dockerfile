@@ -5,3 +5,4 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/ && \
     apt-get clean all
 USER buildagent
+COPY gitconfig /home/buildagent/.gitconfig
